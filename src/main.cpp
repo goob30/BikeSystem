@@ -19,9 +19,10 @@ enum turnSignal {
   RIGHT
 };
 
+
 void updateDraw(bool blinking, bool braking, int direction) {
   if (g_isBraking) {
-    
+
   }
 }
 
@@ -34,6 +35,5 @@ void setup() {
 }
 
 void loop() {
-  updateDraw();
   delay(10);
 }
