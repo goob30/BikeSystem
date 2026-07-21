@@ -7,6 +7,14 @@
 #define DATA_PIN  27
 #define CS_PIN    13
 
+#define TFT_CS    16
+#define TFT_DC    17
+#define TFT_RST   4
+
+#define TFT_MOSI  23
+#define TFT_SCLK  18
+#define TFT_BL    33
+
 const int lModuleOffset = 0;
 const int lCModuleOffset = 8;
 const int rCModuleOffset = 16;
@@ -125,10 +133,6 @@ void updateDraw(TurnSignal signal, bool braking) {
     leftArrowX = lHazardArrowXStart - clubstep;
     rightArrowX = rHazardArrowXStart + clubstep;
 
-    
-
-    
-
     mx.control(MD_MAX72XX::UPDATE, MD_MAX72XX::OFF);
     drawBitmap(lArrow, sizeof(lArrow), leftArrowX, true);
     drawBitmap(rArrow, sizeof(rArrow), rightArrowX, true);
@@ -141,7 +145,7 @@ void setup() {
   mx.control(MD_MAX72XX::INTENSITY, 1);
 
   isBraking = false;
-  turnSignal = HAZARD; // debug
+  turnSignal = LEFT; // debug
 }
 
 void loop() {
